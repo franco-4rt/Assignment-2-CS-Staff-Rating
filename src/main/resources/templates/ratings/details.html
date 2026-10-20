@@ -8,25 +8,7 @@
 <body>
     <main>
         <div class="container-fluid">
-            <table class="row justify-content-center">
-                <thead>
-                    <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Roletype</th>
-                        <th scope="col">Overall Score</th>
-                        <th scope="col">Comments</th>
-                    </tr>
-                    
-                </thead>
-                <tbody>
-                    <tr th: each="ratings:${rt}">
-                        <th scope="row" th: text="${ratings.name}"></th>
-                        <th th: text="${ratings.roleType}"></th>
-                        <th th: text="${ratings.Overall}"></th>
-                        <th th:text="${rating.comments}"></th>
-                    </tr>
-                </tbody>
-            </table>
+            
         </div>
     </main>
 </body>

@@ -1,0 +1,12 @@
+body{
+    background-color: grey;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}   
+#Title{
+    color: white;
+}
+#ratingTable{
+    color: white;
+}
