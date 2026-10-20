@@ -10,7 +10,7 @@ import com.ratingstaff.asn2.models.StaffRating;
 
 @Repository 
 public class StaffRatingRepository {
-    private List<StaffRating> data = new ArrayList<>();
+    private final List<StaffRating> data = new ArrayList<>();
 
     public StaffRatingRepository() {
         this.data.add(new StaffRating("Juan", "Juan@gmail.com", StaffRating.RoleType.TA, 3, 10, 10, "Fun person"));

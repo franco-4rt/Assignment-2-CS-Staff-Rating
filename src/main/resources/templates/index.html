@@ -27,7 +27,7 @@
                         <th scope="row" th:text="${rating.name}"></th>
                         <th th:text="${rating.roleType}"></th>
                         <th th:text="${rating.overall}"></th>
-                        <th><a href="">Details</a></th>
+                        <th><a th:href="@{/ratings/{id}(id=${rating.id})}">Details</a></th>
                     </tr>
                 </tbody>
             </table>
