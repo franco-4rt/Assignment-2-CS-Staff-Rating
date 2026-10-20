@@ -7,6 +7,7 @@ public class StaffRating {
         INSTRUCTOR,
         STAFF
     };
+    private static int nextId = 0;
     private int  id;
     private String name;
     private String email;
@@ -24,6 +25,7 @@ public class StaffRating {
     }
 
     public StaffRating( String name, String email, RoleType roleType, int clarity, int niceness, int knowledgeable, String comment) {
+        this.id = nextId++;
         this.name = name;
         this.email = email;
         this.roleType = roleType;
@@ -37,7 +39,7 @@ public class StaffRating {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId() {
         this.id = id;
     }
 
