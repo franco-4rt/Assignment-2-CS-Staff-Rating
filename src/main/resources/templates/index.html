@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+</head>
+<body>
+    <header>
+        <div id="Title">
+            <h1>CS Staff Rating</h1>
+        </div>
+    </header>
+    <main>
+        <div class="container-fluid">
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Roletype</th>
+                        <th scope="col">Overall Score</th>
+                    </tr>
+                    
+                </thead>
+                <tbody>
+                    <tr th:each="rating:${rt}">
+                        <th scope="row" th:text="${rating.name}"></th>
+                        <th th:text="${rating.roleType}"></th>
+                        <th th:text="${rating.overall}"></th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <footer>
+        
+    </footer>
+</body>
+</html>
