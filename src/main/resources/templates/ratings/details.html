@@ -35,6 +35,14 @@
                 </tbody>
             </table>
         </div>
+        <div class="Edit-Delete">
+            <a th:href="@{/ratings/{id}/edit(id=${rating.id})}">Edit</a>
+            <form method="post" th:action="@{/ratings/{id}/delete(id=${rating.id})}">
+                <input type="submit" value="Delete"></form>
+        </div>
     </main>
+    <footer>
+
+    </footer>
 </body>
 </html>

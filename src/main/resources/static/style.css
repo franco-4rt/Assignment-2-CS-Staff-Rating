@@ -17,3 +17,9 @@ body{
 table th, table td {
     padding: 8px 20px;
 }
+.Edit-Delete{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    gap: 20px;
+}
