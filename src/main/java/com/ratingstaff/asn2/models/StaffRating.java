@@ -1,5 +1,21 @@
 package com.ratingstaff.asn2.models;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+
+@Entity
+@Table (name = "staffRating")
 public class StaffRating {
     public enum RoleType{
         TA,
@@ -7,14 +23,39 @@ public class StaffRating {
         INSTRUCTOR,
         STAFF
     };
-    private static int nextId = 0;
-    private int  id;
+    @Id 
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @NotBlank 
+    @Size (max = 20, message = "Name cannot exceed 20 characters")
     private String name;
+
+    @NotBlank 
+    @Email 
+    @Size (max = 255, message="Email must not exceed 255 characters")
     private String email;
+
+    @NotNull 
+    @Enumerated (EnumType.STRING)
     private RoleType roleType;
+
+    @NotNull 
+    @Min (value = 1)
+    @Max (value = 10)
     private int clarity;
+
+    @NotNull 
+    @Min (value = 1)
+    @Max (value = 10)
     private int niceness;
+
+    @NotNull 
+    @Min (value = 1)
+    @Max (value = 10)
     private int knowledgeable;
+
+    @Size (max = 200, message="Comment must not exceed 200 characters")
     private String comment;
     
     public StaffRating() {
@@ -25,7 +66,6 @@ public class StaffRating {
     }
 
     public StaffRating( String name, String email, RoleType roleType, int clarity, int niceness, int knowledgeable, String comment) {
-        this.id = nextId++;
         this.name = name;
         this.email = email;
         this.roleType = roleType;
@@ -35,7 +75,7 @@ public class StaffRating {
         this.comment = comment;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
