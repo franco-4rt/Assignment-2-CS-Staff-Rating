@@ -1,5 +1,10 @@
 package com.ratingstaff.asn2.models;
 
+import com.ratingstaff.asn2.profiles.GeneralStaffProfile;
+import com.ratingstaff.asn2.profiles.ProfProfile;
+import com.ratingstaff.asn2.profiles.StaffMemberProfile;
+import com.ratingstaff.asn2.profiles.TAProfile;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -23,6 +28,7 @@ public class StaffRating {
         INSTRUCTOR,
         STAFF
     };
+
     @Id 
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private long id;
@@ -133,5 +139,13 @@ public class StaffRating {
 
     public void setComment(String comment) {
         this.comment = comment;
+    }
+
+    public StaffMemberProfile getProfile(){
+        switch (roleType) {
+            case TA: return new TAProfile();
+            case PROF: return new ProfProfile();
+            default: return new GeneralStaffProfile();
+        }
     }
 }
