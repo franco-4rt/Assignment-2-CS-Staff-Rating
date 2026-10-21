@@ -49,17 +49,17 @@ public class StaffRating {
     @NotNull 
     @Min (value = 1)
     @Max (value = 10)
-    private int clarity;
+    private Integer clarity;
 
     @NotNull 
     @Min (value = 1)
     @Max (value = 10)
-    private int niceness;
+    private Integer niceness;
 
     @NotNull 
     @Min (value = 1)
     @Max (value = 10)
-    private int knowledgeable;
+    private Integer knowledgeable;
 
     @Size (max = 200, message="Comment must not exceed 200 characters")
     private String comment;
@@ -67,11 +67,11 @@ public class StaffRating {
     public StaffRating() {
     }
 
-    public int getOverall() {
+    public Integer getOverall() {
         return (this.clarity + this.niceness +  this.knowledgeable)/3;
     }
 
-    public StaffRating( String name, String email, RoleType roleType, int clarity, int niceness, int knowledgeable, String comment) {
+    public StaffRating( String name, String email, RoleType roleType, Integer clarity, Integer niceness, Integer knowledgeable, String comment) {
         this.name = name;
         this.email = email;
         this.roleType = roleType;
@@ -109,27 +109,27 @@ public class StaffRating {
         this.roleType = roleType;
     }
 
-    public int getClarity() {
+    public Integer getClarity() {
         return clarity;
     }
 
-    public void setClarity(int clarity) {
+    public void setClarity(Integer clarity) {
         this.clarity = clarity;
     }
 
-    public int getNiceness() {
+    public Integer getNiceness() {
         return niceness;
     }
 
-    public void setNiceness(int niceness) {
+    public void setNiceness(Integer niceness) {
         this.niceness = niceness;
     }
 
-    public int getKnowledgeable() {
+    public Integer getKnowledgeable() {
         return knowledgeable;
     }
 
-    public void setKnowledgeable(int knowledgeable) {
+    public void setKnowledgeable(Integer knowledgeable) {
         this.knowledgeable = knowledgeable;
     }
 
