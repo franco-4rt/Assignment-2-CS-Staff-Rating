@@ -142,10 +142,10 @@ public class StaffRating {
     }
 
     public StaffMemberProfile getProfile(){
-        switch (roleType) {
-            case TA: return new TAProfile();
-            case PROF: return new ProfProfile();
-            default: return new GeneralStaffProfile();
-        }
+        return switch (roleType) {
+            case TA -> new TAProfile();
+            case PROF -> new ProfProfile();
+            default -> new GeneralStaffProfile();
+        };
     }
 }
