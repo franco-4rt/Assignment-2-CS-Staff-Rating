@@ -10,6 +10,7 @@ import com.ratingstaff.asn2.repositories.StaffRatingRepository;
 
 
 
+
 @Controller 
 public class StaffRatingController{
     private final StaffRatingRepository data;
@@ -24,5 +25,11 @@ public class StaffRatingController{
     public StaffRatingController(StaffRatingRepository data) {
         this.data = data;
     }
+
+    @GetMapping("/")
+    public String home() {
+        return "redirect:/index/view";
+    }
+    
     
 }
