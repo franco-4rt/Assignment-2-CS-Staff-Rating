@@ -10,3 +10,10 @@ body{
 #ratingTable{
     color: white;
 }
+#detailsHeader{
+    color: white;
+    align-self: flex-start;
+}
+table th, table td {
+    padding: 8px 20px;
+}

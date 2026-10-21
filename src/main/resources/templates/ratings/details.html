@@ -3,20 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/style.css">
     <title>Details Page</title>
 </head>
 <body>
-    <header>
-        <h1 th:text="${rating.name}"></h1><br>
-        <h2 the:switch=${rating.profile.displayTitle()}></h2>
+    <header id="detailsHeader">
+
+            <h1 th:text="${rating.name}"></h1>
+            <h2 th:text="${rating.profile.displayTitle()}"></h2>
+            <span>Email: <a th:text="${rating.email}"></a> </span>
+
     </header>
     <main>
         <div class="container-fluid">
-            <table>
-                <tr>
-                    
-                </tr>
+            <table id="detailsTable">
+                <thead>
+                    <tr>
+                        <th scope="col">Clarity</th>
+                        <th scope="col">Niceness</th>
+                        <th scope="col">Knowledgeable</th>
+                        <th scope="col">Overall</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td scope="row" th:text="${rating.clarity}"></td>
+                        <td th:text="${rating.niceness}"></td>
+                        <td th:text="${rating.knowledgeable}"></td>
+                        <td th:text="${rating.overall}"></td>
+                    </tr>
+                </tbody>
             </table>
         </div>
     </main>
