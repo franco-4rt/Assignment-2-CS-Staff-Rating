@@ -148,4 +148,8 @@ public class StaffRating {
             default -> new GeneralStaffProfile();
         };
     }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 }

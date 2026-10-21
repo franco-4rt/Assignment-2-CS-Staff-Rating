@@ -13,8 +13,8 @@
     <main>
         <div class="container-fluid">
             <form th:action="@{/ratings}" th:object="${rating}" method="post">
-                <label>Name: <input th:field="*{name}" type="text"></label><br>
-                <label>Email: <input th:field="*{email}" type="email"></label><br>
+                <label>Name: <input th:field="*{name}" type="text"></label><span class="error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span><br>
+                <label>Email: <input th:field="*{email}" type="email"></label><span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span><br>
                 <label>Role:
                 <select th:field="*{roleType}">
                     <option value="">Select a role</option>
@@ -22,11 +22,11 @@
                     <option value="PROF">Professor</option>
                     <option value="STAFF">Staff member</option>
                     <option value="INSTRUCTOR">Instructor</option>
-                </select></label><br>
-                <label>Niceness: <input min="1" max="10" th:field="*{niceness}" type="number"></label><br>
-                <label>Clarity: <input min="1" max="10" th:field="*{clarity}" type="number"></label><br>
-                <label>Knowledgeable: <input min="1" max="10" th:field="*{knowledgeable}" type="number"></label><br>
-                <label>Comment <textarea placeholder="Comments on the person" th:field="*{comment}"></textarea></label><br>
+                </select></label><span th:if="${#fields.hasErrors('roleType')}" th:errors="*{roleType}"></span><br>
+                <label>Niceness: <input min="1" max="10" th:field="*{niceness}" type="number"></label><span th:if="${#fields.hasErrors('niceness')}" th:errors="*{niceness}"></span><br>
+                <label>Clarity: <input min="1" max="10" th:field="*{clarity}" type="number"></label><span th:if="${#fields.hasErrors('clarity')}" th:errors="*{clarity}"></span><br>
+                <label>Knowledgeable: <input min="1" max="10" th:field="*{knowledgeable}" type="number"></label><span th:if="${#fields.hasErrors('knowledgeable')}" th:errors="*{knowledgeable}"></span><br>
+                <label>Comment <textarea placeholder="Comments on the person" th:field="*{comment}"></textarea></label><span th:if="${#fields.hasErrors('comment')}" th:errors="*{comment}"></span><br>
                 <button type="submit">Save</button>
             </form>
         </div>

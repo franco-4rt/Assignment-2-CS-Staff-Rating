@@ -24,6 +24,8 @@ import jakarta.validation.Valid;
 
 
 
+
+
 @Controller 
 public class StaffRatingController{
     private final StaffRatingRepository data;
@@ -69,6 +71,22 @@ public class StaffRatingController{
     public String deleteRating(@PathVariable Long id) {
         this.data.deleteById(id);
         return "redirect:/index/view";
+    }
+    
+    @GetMapping("/ratings/{id}/edit")
+    public String editRating(@PathVariable Long id, Model model) {
+        model.addAttribute("rating", this.data.findById(id)
+            .orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND, "Rating not found")));
+
+        return "ratings/edit";
+    }
+    
+    @PostMapping("/ratings/{id}/edit")
+    public String saveRatingEdit(@Valid @ModelAttribute("rating") StaffRating rating, BindingResult result, @PathVariable Long id) {
+        rating.setId(id);
+        if(result.hasErrors()){return"ratings/edit";}
+        this.data.save(rating);
+        return "redirect:/ratings/" + id;
     }
     
 }
