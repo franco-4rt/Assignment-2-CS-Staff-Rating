@@ -23,6 +23,7 @@ import jakarta.validation.Valid;
 
 
 
+
 @Controller 
 public class StaffRatingController{
     private final StaffRatingRepository data;
@@ -64,5 +65,10 @@ public class StaffRatingController{
         return "redirect:/index/view";
     }
     
+    @PostMapping("/ratings/{id}/delete")
+    public String deleteRating(@PathVariable Long id) {
+        this.data.deleteById(id);
+        return "redirect:/index/view";
+    }
     
 }
