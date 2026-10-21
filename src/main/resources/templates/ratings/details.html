@@ -34,6 +34,8 @@
                     </tr>
                 </tbody>
             </table>
+            <p>Comments:</p>
+            <p th:text="${rating.comment}"></p>
         </div>
         <div class="Edit-Delete">
             <a th:href="@{/ratings/{id}/edit(id=${rating.id})}">Edit</a>
